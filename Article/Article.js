@@ -85,6 +85,22 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'More Javascript: Blah, Blah, Blah!',
+    date: 'Jan 1st, 2019',
+    firstParagraph: `Blah blah BLAH! Blah, blah - blah. Blah blah... Blah blah blah; Blah blah blah. Blah blah blah, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Blah blah blah. Blah blah blah. Blah blah blah! Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Blah blah blah... Blah blah blah blah. Hodor. Blah blah blah! Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -112,3 +128,51 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+let articles = document.querySelector('.articles')
+
+data.forEach(item => {
+  const article = articleComponent(item)
+  articles.appendChild(article)
+})
+
+function articleComponent(data){
+
+  const articleDiv = document.createElement('div');
+  articleDiv.classList.add('article');
+
+  const articleTitle = document.createElement('h2');
+  articleTitle.textContent = data.title;
+  articleDiv.appendChild(articleTitle);
+
+  const articleDate = document.createElement('p');
+  articleDate.classList.add('date');
+  articleDate.textContent = data.date;
+  articleDiv.appendChild(articleDate);
+
+  const paragraphOne = document.createElement('p');
+  paragraphOne.textContent = data.firstParagraph;
+  articleDiv.appendChild(paragraphOne);
+
+  const paragraphTwo = document.createElement('p');
+  paragraphTwo.textContent = data.secondParagraph;
+  articleDiv.appendChild(paragraphTwo);
+
+  const paragraphThree = document.createElement('p');
+  paragraphThree.textContent = data.thirdParagraph;
+  articleDiv.appendChild(paragraphThree);
+
+  const button = document.createElement('span');
+  button.classList.add('expandButton');
+  button.textContent = 'Expand';
+  articleDiv.appendChild(button);
+  button.addEventListener('click', () => {
+    articleDiv.classList.toggle('article-open');
+  });
+  
+  return articleDiv;
+}
+
+
+let newArticle = data.map( (data) => {
+  return articleComponent(data);
+})
