@@ -58,3 +58,30 @@ const menu = (array) => {
 
 const header = document.querySelector('.header');
 header.appendChild(menu(menuItems));
+
+/*
+const itemOne = document.createElement('li');
+  itemOne.textContent = 'Students';
+  menuList.appendChild(itemOne);
+
+  const itemTwo = document.createElement('li');
+  itemTwo.texContent = 'Faculty';
+  menuList.appendChild(itemTwo);
+
+  const itemThree = document.createElement('li');
+  itemThree.textContent = "What's New";
+  menuList.appendChild(itemThree);
+
+  const itemFour = document.createElement('li');
+  itemFour.textContent = 'Tech Trends';
+  menuList.appendChild(itemFour);
+
+  const itemFive = document.createElement('li');
+  itemFive.textConten = 'Music';
+  menuList.appendChild(itemFive);
+
+  const itemSix = document.createElement('li');
+  itemSix.textContent = 'Log Out';
+  menuList.appendChild(itemSix);
+}
+*/
