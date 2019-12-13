@@ -42,11 +42,11 @@ const menu = (array) => {
   const menuList = document.createElement('ul');
   menuDiv.appendChild(menuList);
 
-  array.forEach(item => {
-    let listItem = document.createElement('li');
-    listItem.textContent = item;
-    menuList.appendChild(listItem);
-  });
+    array.forEach(item => {
+      let listItem = document.createElement('li');
+      listItem.textContent = item;
+      menuList.appendChild(listItem);
+    });
 
   const menuButton = document.querySelector('.menu-button');
   menuButton.addEventListener('click', () => {
